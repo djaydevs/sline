@@ -90,14 +90,15 @@ export default function SieMaticAtoms() {
           <CardTitle>Colors</CardTitle>
         </CardHeader>
         <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
-          <div className="bg-black flex h-[80px] flex-row rounded-lg w-[100%]">
+          <div className="flex h-[80px] flex-row rounded-lg w-[100%]">
             {colors.map((item) => (
               <>
                 <button
                   title="copy to clipboard"
                   onClick={() => {toast.success("Copied to clipboard")
                   navigator.clipboard.writeText(item.color)}}
-                  className={`bg-[${item.color}] grow hover:grow-[2] transition-ease-linear duration-300 [&>*]:hidden [&:hover>*]:flex`}
+                  style={{backgroundColor: `${item.color}`}}
+                  className="grow hover:grow-[2] transition-ease-linear duration-300 [&>*]:hidden [&:hover>*]:flex"
                 >
                   <div className="flex flex-col items-center justify-center h-full">
                     <p
@@ -121,7 +122,7 @@ export default function SieMaticAtoms() {
           </div>
         </CardContent>
       </Card>
-      <Card>
+      {/* <Card>
         <CardHeader className="p-2 pt-0 md:p-4">
           <CardTitle>Fonts</CardTitle>
         </CardHeader>
@@ -132,7 +133,7 @@ export default function SieMaticAtoms() {
             <h3>Atom</h3>
           </div>
         </CardContent>
-      </Card>
+      </Card> */}
     </div>
   );
 }

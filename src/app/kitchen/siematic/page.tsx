@@ -7,7 +7,7 @@ function renderSwitch(param : String) {
         <SieMaticAtoms />
       );
     default:
-      return null;
+      return "foo";
   }
 }
 
