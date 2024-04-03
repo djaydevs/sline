@@ -4,13 +4,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Bath, BedDouble, Home, ShoppingBag, Utensils } from "lucide-react";
+import { Bath, BedDouble, ShoppingBag, Utensils } from "lucide-react";
 import Link from "next/link";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function Navbar() {
   return (
     <>
-      <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
+      <ScrollArea className="border-b-[1px] grid h-[80vh] items-start px-2 text-sm font-medium lg:px-4">
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">
             <AccordionTrigger>
@@ -227,7 +228,7 @@ export default function Navbar() {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
-      </nav>
+      </ScrollArea>
     </>
   );
 }
