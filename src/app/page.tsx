@@ -32,6 +32,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Searchbar } from "@/components/molecules/searchbar"
+import { AtomicTabs } from "@/components/molecules/atomic-tabs"
 
 export default function DashboardPage() {
   return (
@@ -187,6 +188,7 @@ export default function DashboardPage() {
               </div>
             </SheetContent>
           </Sheet>
+          <AtomicTabs />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="secondary" size="icon" className="rounded-full">
