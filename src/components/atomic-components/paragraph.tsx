@@ -1,7 +1,11 @@
 import React from "react";
 
+import {
+  helveticaNeue,
+  helveticaNeueMedium,
+} from "../../../public/fonts/fonts";
+
 import { cn } from "@/lib/utils";
-import { helveticaNow, helveticaNowBold } from "@/fonts/fonts";
 
 type ParagraphProps = {
   className?: string;
@@ -17,9 +21,9 @@ export const Paragraph: React.FC<ParagraphProps> = ({
   return (
     <p
       className={cn(
-        "max-w-full text-justify text-[14px] sm:text-[15px] font-semibold leading-7 text-black md:text-center lg:text-[16px]",
-        helveticaNow.className,
-        bold && helveticaNowBold.className,
+        "max-w-full text-justify text-[14px] sm:text-[15px] leading-7 text-black md:text-center lg:text-[16px]",
+        helveticaNeue.className,
+        bold && helveticaNeueMedium.className,
         className
       )}
     >
