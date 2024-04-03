@@ -8,7 +8,7 @@ import { Bath, BedDouble, ShoppingBag, Utensils } from "lucide-react";
 import Link from "next/link";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-export default function Navbar() {
+export function SideNav() {
   return (
     <>
       <ScrollArea className="border-b-[1px] grid h-[80vh] items-start px-2 text-sm font-medium lg:px-4">
@@ -110,13 +110,13 @@ export default function Navbar() {
                 Wolf
               </Link>
               <Link
-                href="#"
+                href="/kitchen/siematic"
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
               >
                 SieMatic
               </Link>
               <Link
-                href="#"
+                href="/kitchen/miele"
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
               >
                 Miele
