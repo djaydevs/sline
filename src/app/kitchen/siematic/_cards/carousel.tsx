@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Paragraph } from "@/components/atomic-components/paragraph";
 import { copyToClipboard } from "@/lib/utils";
 import { CarouselImageBanner } from "@/components/atomic-components/carousel";
 
@@ -19,7 +18,7 @@ export const CarouselCard = ({}) => {
   return (
     <Card>
       <CardHeader className="p-2 pt-0 md:p-4">
-        <CardTitle>Carousel Autoplay with Indicator</CardTitle>
+        <CardTitle>Image Carousel</CardTitle>
       </CardHeader>
       <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
         <Tabs defaultValue="preview" className="max-w-full">
@@ -126,7 +125,7 @@ export const CarouselAutoplayIndicatorExample = () => {
   ];
 
   return (
-    <div className="h-[700px] w-[500px]">
+    <div className="h-[500px] w-[500px]">
       <CarouselImageBanner
         images={items}
         carouselItemClassName="md:h-[300px]"
@@ -136,6 +135,8 @@ export const CarouselAutoplayIndicatorExample = () => {
 };
 
 const codeExample = `
+import { CarouselImageBanner } from "@/components/molecules/carousel";
+
 export const CarouselAutoplayIndicatorExample = () => {
     const items = [
       {
