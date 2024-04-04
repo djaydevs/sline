@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Typeface } from "../_components/typeface";
-import { Colors } from "../_components/colors";
-import { ParagraphCard } from "../_components/paragraph";
+import { Typeface } from "../_cards/typeface";
+import { Colors } from "../_cards/colors";
+import { ParagraphCard } from "../_cards/paragraph";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 

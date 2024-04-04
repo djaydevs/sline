@@ -2,7 +2,7 @@ import "./../../globals.css";
 import { Mulish } from "next/font/google";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import SieMaticAtomicCards from "./_cards/atoms";
+import SieMaticAtomicCards from "./_components/atoms";
 
 const mulish = Mulish({
   subsets: ["latin"],
