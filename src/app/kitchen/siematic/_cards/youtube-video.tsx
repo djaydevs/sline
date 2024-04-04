@@ -9,16 +9,16 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Paragraph } from "@/components/atomic-components/paragraph";
 import { copyToClipboard } from "@/lib/utils";
+import { YoutubeVideo } from "@/components/atomic-components/youtube-video";
 
-export const ParagraphCard = ({}) => {
+export const YoutubeVideoCard = ({}) => {
   const code = useRef<HTMLPreElement>(null);
 
   return (
     <Card>
       <CardHeader className="p-2 pt-0 md:p-4">
-        <CardTitle>Paragraph</CardTitle>
+        <CardTitle>Youtube Video</CardTitle>
       </CardHeader>
       <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
         <Tabs defaultValue="preview" className="max-w-full">
@@ -36,7 +36,7 @@ export const ParagraphCard = ({}) => {
           </div>
           <TabsContent value="preview">
             <div className="h-[50dvh] flex flex-col items-center justify-center shadow-lg rounded-xl">
-              <ParagraphExample />
+              <YoutubeVideoExample />
             </div>
           </TabsContent>
           <TabsContent value="example">
@@ -91,64 +91,54 @@ export const ParagraphCard = ({}) => {
   );
 };
 
-export const ParagraphExample = () => {
+export const YoutubeVideoExample = () => {
   return (
-    <>
-      {/* Normal Font Weight */}
-      <Paragraph>The quick brown fox jumps over the lazy dog</Paragraph>
-      {/* Bold Font Weight */}
-      <Paragraph bold>The quick brown fox jumps over the lazy dog</Paragraph>
-    </>
+    <div className="w-[500px]">
+      <YoutubeVideo className="w-full" videoId="me9Heufpcxg" />
+    </div>
   );
 };
 
 const codeExample = `
-import { Paragraph } from "@/components/atoms/paragraph";
-
-export const ParagraphExample = () => {
-  return (
-    <>
-      {/* Normal Font Weight */}
-      <Paragraph>The quick brown fox jumps over the lazy dog</Paragraph>
-      {/* Bold Font Weight */}
-      <Paragraph bold>The quick brown fox jumps over the lazy dog</Paragraph>
-    </>
-  );
-};
+export const YoutubeVideoExample = () => {
+    return (
+      <div className="w-[500px]">
+        <YoutubeVideo className="w-full" videoId="me9Heufpcxg" />
+      </div>
+    );
+  };
 `;
 
 const codeSource = `
-import React from "react";
-
-import {
-  helveticaNeue,
-  helveticaNeueMedium,
-} from "../../../public/fonts/fonts";
+"use client";
 
 import { cn } from "@/lib/utils";
 
-type ParagraphProps = {
+type YouTubeVideoProps = {
+  videoId: string;
+  fullVideo?: boolean;
   className?: string;
-  bold?: boolean;
-  children: React.ReactNode;
 };
 
-export const Paragraph: React.FC<ParagraphProps> = ({
-  children,
-  className,
-  bold,
-}) => {
+export const YoutubeVideo = (props: YouTubeVideoProps) => {
+  const { videoId, fullVideo = false, className = "" } = props;
+
   return (
-    <p
+    <div
       className={cn(
-        "max-w-full text-justify text-[14px] sm:text-[15px] leading-7 text-black md:text-center lg:text-[16px]",
-        helveticaNeue.className,
-        bold && helveticaNeueMedium.className,
+        "aspect-w-16 aspect-h-9",
+        { "w-full lg:w-screen": fullVideo },
         className
-      )}
-    >
-      {children}
-    </p>
+      )}>
+      <iframe
+        allowFullScreen
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        className="aspect-video w-full"
+        src={\`https://www.youtube.com/embed/\${videoId}\`}
+        title="YouTube video player"
+      />
+    </div>
   );
 };
+
 `;
