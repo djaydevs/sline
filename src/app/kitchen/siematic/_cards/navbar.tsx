@@ -18,7 +18,7 @@ export const NavbarCard = ({}) => {
   return (
     <Card>
       <CardHeader className="p-2 pt-0 md:p-4">
-        <CardTitle>Navbar</CardTitle>
+        <CardTitle>Navigation</CardTitle>
       </CardHeader>
       <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
         <Tabs defaultValue="preview" className="max-w-full">

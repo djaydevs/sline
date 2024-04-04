@@ -1,5 +1,6 @@
 import "./globals.css";
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { Inter, Mulish } from "next/font/google";
 import { Toaster } from "sonner";
@@ -37,7 +38,7 @@ export default function RootLayout({
                 <Link
                   href="/"
                   className="flex items-center gap-2 font-semibold">
-                  <span className="">Sline</span>
+                    <Image src="/sline.png" alt="Sline" width={90} height={90} />
                 </Link>
                 <Button
                   variant="outline"
