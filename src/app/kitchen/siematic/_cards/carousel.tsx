@@ -11,6 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Paragraph } from "@/components/atomic-components/paragraph";
 import { copyToClipboard } from "@/lib/utils";
+import { CarouselImageBanner } from "@/components/atomic-components/carousel";
 
 export const CarouselCard = ({}) => {
   const code = useRef<HTMLPreElement>(null);
@@ -40,7 +41,7 @@ export const CarouselCard = ({}) => {
             </div>
           </TabsContent>
           <TabsContent value="example">
-            <ScrollArea className="relative w-full h-full rounded-lg">
+            <ScrollArea className="relative w-full h-[50dvh] rounded-lg">
               <div className="absolute top-0 right-0 p-2">
                 <Button
                   onClick={() => copyToClipboard(code)}
@@ -96,29 +97,80 @@ export const CarouselCard = ({}) => {
 };
 
 export const CarouselAutoplayIndicatorExample = () => {
+  const items = [
+    {
+      title: "Image 1",
+      src: "https://http.cat/510.jpg",
+      mobileSrc: "https://http.cat/510.jpg",
+    },
+    {
+      title: "Image 2",
+      src: "https://http.cat/499.jpg",
+      mobileSrc: "https://http.cat/499.jpg",
+    },
+    {
+      title: "Image 3",
+      src: "https://http.cat/102.jpg",
+      mobileSrc: "https://http.cat/102.jpg",
+    },
+    {
+      title: "Image 4",
+      src: "https://http.cat/103.jpg",
+      mobileSrc: "https://http.cat/103.jpg",
+    },
+    {
+      title: "Image 5",
+      src: "https://http.cat/202.jpg",
+      mobileSrc: "https://http.cat/202.jpg",
+    },
+  ];
+
   return (
-    <>
-      {/* Normal Font Weight */}
-      <Paragraph>The quick brown fox jumps over the lazy dog</Paragraph>
-      {/* Bold Font Weight */}
-      <Paragraph bold>The quick brown fox jumps over the lazy dog</Paragraph>
-    </>
+    <div className="h-[700px] w-[500px]">
+      <CarouselImageBanner
+        images={items}
+        carouselItemClassName="md:h-[300px]"
+      />
+    </div>
   );
 };
 
 const codeExample = `
-import { Paragraph } from "@/components/molecules/carousel";
-
-export const ParagraphExample = () => {
-  return (
-    <>
-      {/* Normal Font Weight */}
-      <Paragraph>The quick brown fox jumps over the lazy dog</Paragraph>
-      {/* Bold Font Weight */}
-      <Paragraph bold>The quick brown fox jumps over the lazy dog</Paragraph>
-    </>
-  );
-};
+export const CarouselAutoplayIndicatorExample = () => {
+    const items = [
+      {
+        title: "Image 1",
+        src: "https://http.cat/510.jpg",
+        mobileSrc: "https://http.cat/510.jpg",
+      },
+      {
+        title: "Image 2",
+        src: "https://http.cat/499.jpg",
+        mobileSrc: "https://http.cat/499.jpg",
+      },
+      {
+        title: "Image 3",
+        src: "https://http.cat/102.jpg",
+        mobileSrc: "https://http.cat/102.jpg",
+      },
+      {
+        title: "Image 4",
+        src: "https://http.cat/103.jpg",
+        mobileSrc: "https://http.cat/103.jpg",
+      },
+      {
+        title: "Image 5",
+        src: "https://http.cat/202.jpg",
+        mobileSrc: "https://http.cat/202.jpg",
+      },
+    ];
+  
+    return (
+      <>
+        <CarouselImageBanner images={items} />
+      </>
+    );
+  };
 `;
 
 const codeSource = `

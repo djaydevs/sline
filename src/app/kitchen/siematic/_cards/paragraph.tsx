@@ -11,7 +11,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Paragraph } from "@/components/atomic-components/paragraph";
 import { copyToClipboard } from "@/lib/utils";
-import { Heading } from "@/components/atomic-components/heading";
 
 export const ParagraphCard = ({}) => {
   const code = useRef<HTMLPreElement>(null);
