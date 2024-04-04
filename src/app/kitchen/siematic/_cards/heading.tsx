@@ -93,13 +93,23 @@ export const HeadingCard = ({}) => {
 
 export const HeadingExample = () => {
   return (
-    <div className="space-y-3 text-center">
-      <Heading.h1>Heading 1</Heading.h1>
-      <Heading.h2>Heading 2</Heading.h2>
-      <Heading.h3>Heading 3</Heading.h3>
-      <Heading.h4>Heading 4</Heading.h4>
-      <Heading.h5>Heading 5</Heading.h5>
-      <Heading.h6>Heading 6</Heading.h6>
+    <div className="flex space-x-14">
+      <div className="space-y-3">
+        <Heading.h1>Heading 1</Heading.h1>
+        <Heading.h2>Heading 2</Heading.h2>
+        <Heading.h3>Heading 3</Heading.h3>
+        <Heading.h4>Heading 4</Heading.h4>
+        <Heading.h5>Heading 5</Heading.h5>
+        <Heading.h6>Heading 6</Heading.h6>
+      </div>
+      <div className="space-y-3">
+        <Heading.h1 bold>Heading 1</Heading.h1>
+        <Heading.h2 bold>Heading 2</Heading.h2>
+        <Heading.h3 bold>Heading 3</Heading.h3>
+        <Heading.h4 bold>Heading 4</Heading.h4>
+        <Heading.h5 bold>Heading 5</Heading.h5>
+        <Heading.h6 bold>Heading 6</Heading.h6>
+      </div>
     </div>
   );
 };

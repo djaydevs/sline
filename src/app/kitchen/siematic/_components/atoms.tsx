@@ -7,6 +7,7 @@ import { ParagraphCard } from "../_cards/paragraph";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { HeadingCard } from "../_cards/heading";
 import { YoutubeVideoCard } from "../_cards/youtube-video";
+import { ButtonCard } from "../_cards/buttons";
 import { AssetsCard } from "../_cards/assets";
 
 export default function SieMaticAtomicCards() {
@@ -21,6 +22,7 @@ export default function SieMaticAtomicCards() {
           <Colors />
           <HeadingCard />
           <ParagraphCard />
+          <ButtonCard />
           <YoutubeVideoCard />
         </div>
       </ScrollArea>
