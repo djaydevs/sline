@@ -29,7 +29,7 @@ export const AssetsCard = ({}) => {
       <CardContent className="mx-auto w-full p-2 pt-0 md:p-4 md:pt-0">
         <Image
           className="mx-auto"
-          src="/SiematicLogo.png"
+          src="/siematic-logo.png"
           width={250}
           height={1000}
           alt="Siematic Logo"
