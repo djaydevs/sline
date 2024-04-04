@@ -15,11 +15,11 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { topbarRoutes, pageRoutes } from "@/config/routes / pages";
-import { SiematicLogo } from "../atoms / logo";
+import { topbarRoutes, pageRoutes } from "@/config/routes/pages";
+import { SiematicLogo } from "@/components/atoms/logo";
 
 export const linkStyle =
-  "bg-none uppercase transition-colors duration-700 ease-linear text-black font-extrabold tracking-wider hover:bg-none hover:text-[#808080] focus:bg-none focus:text-[#808080] data-[active]:bg-none data-[state=open]:bg-none";
+  "bg-none uppercase transition-colors duration-700 ease-linear text-[12px] text-black font-extrabold tracking-wider hover:bg-none hover:text-[#808080] focus:bg-none focus:text-[#808080] data-[active]:bg-none data-[state=open]:bg-none";
 
 export const Navbar = () => {
   const [lastScrollTop, setLastScrollTop] = useState(0);
@@ -69,7 +69,7 @@ export const Navbar = () => {
         <nav
           aria-label="Global"
           className={cn(
-            "relative flex w-full items-center justify-end bg-topbar-foreground py-2 text-sm",
+            "relative flex w-full items-center justify-end bg-neutral-200 py-2 text-sm",
             "transition duration-100 ease-in-out md:translate-y-0",
             {
               "translate-y-0": topBarVisible,
