@@ -19,6 +19,7 @@ export default function SieMaticAtomicCards() {
       <ScrollArea className="h-[60dvh] overflow-hidden border-b-[1px] md:h-[70dvh] lg:h-[78dvh]">
         <div className="flex flex-col gap-5">
           <AssetsCard />
+          <Typeface />
           <Colors />
           <HeadingCard />
           <ParagraphCard />
