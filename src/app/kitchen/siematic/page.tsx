@@ -10,7 +10,7 @@ const mulish = Mulish({
   display: "swap",
 });
 
-const SieMaticPage = async ({ children }: { children: React.ReactNode }) => {
+const SieMaticPage = () => {
   return (
     <Tabs defaultValue="atoms" className="max-w-full m-4">
       <TabsList className="grid w-full grid-cols-3 md:w-[400px]">
