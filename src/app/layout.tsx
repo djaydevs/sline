@@ -6,11 +6,10 @@ import { Toaster } from "sonner";
 import { Bell } from "lucide-react";
 
 import { SideNav } from "@/components/organisms/sidenav";
-import { ProfileDropdown } from "@/components/molecules/profile-dropdown";
 import { Searchbar } from "@/components/molecules/searchbar";
 import { Button } from "@/components/ui/button";
-import { AtomicTabs } from "@/components/molecules/atomic-tabs";
 import { cn } from "@/lib/utils";
+import { ProfileDropdown } from "@/components/molecules/profile-dropdown";
 
 const inter = Inter({ subsets: ["latin"] });
 const mulish = Mulish({
@@ -33,8 +32,8 @@ export default function RootLayout({
       <body className={cn("overflow-hidden", mulish.className)}>
         <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
           <div className="hidden border-r bg-muted/40 md:block">
-            <div className="flex h-full max-h-screen flex-col gap-2">
-              <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
+            <div className="pt-5 flex flex-col gap-2">
+              <div className="flex h-14 items-center border-b px-4 py-3 lg:h-[70px] lg:px-6">
                 <Link
                   href="/"
                   className="flex items-center gap-2 font-semibold"
@@ -54,14 +53,10 @@ export default function RootLayout({
                 <Searchbar />
                 <SideNav />
               </aside>
+              <ProfileDropdown />
             </div>
           </div>
           <div className="w-full flex flex-col">
-            <header className="flex h-full w-full justify-between items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
-              {/* <AtomicTabs className="flex-1" /> */}
-              <div className="flex-1"></div>
-              <ProfileDropdown className="flex-2" />
-            </header>
             <main className="flex flex-1 flex-col gap-4 lg:gap-6">
               {children}
             </main>

@@ -7,10 +7,11 @@ import {
 import { Bath, BedDouble, ShoppingBag, Utensils } from "lucide-react";
 import Link from "next/link";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { ProfileDropdown } from "@/components/molecules/profile-dropdown";
 
 export function SideNav() {
   return (
-    <>
+    <div className="flex flex-col">
       <ScrollArea className="border-b-[1px] grid h-[80vh] items-start px-2 text-sm font-medium lg:px-4">
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">
@@ -229,6 +230,6 @@ export function SideNav() {
           </AccordionItem>
         </Accordion>
       </ScrollArea>
-    </>
+    </div>
   );
 }
