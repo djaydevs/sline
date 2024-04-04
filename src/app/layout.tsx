@@ -31,20 +31,18 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn("overflow-hidden", mulish.className)}>
         <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
-          <div className="hidden border-r bg-muted/40 md:block">
-            <div className="pt-5 flex flex-col gap-2">
+          <div className="hidden border-r bg-muted/40 md:block h-full">
+            <div className="flex flex-col gap-2">
               <div className="flex h-14 items-center border-b px-4 py-3 lg:h-[70px] lg:px-6">
                 <Link
                   href="/"
-                  className="flex items-center gap-2 font-semibold"
-                >
+                  className="flex items-center gap-2 font-semibold">
                   <span className="">Sline</span>
                 </Link>
                 <Button
                   variant="outline"
                   size="icon"
-                  className="ml-auto h-8 w-8"
-                >
+                  className="ml-auto h-8 w-8">
                   <Bell className="h-4 w-4" />
                   <span className="sr-only">Toggle notifications</span>
                 </Button>
@@ -53,7 +51,6 @@ export default function RootLayout({
                 <Searchbar />
                 <SideNav />
               </aside>
-              <ProfileDropdown />
             </div>
           </div>
           <div className="w-full flex flex-col">
