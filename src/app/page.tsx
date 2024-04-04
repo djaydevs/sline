@@ -11,7 +11,7 @@ export default function MainPage() {
           "text-6xl text-slate-900 font-black tracking-wide relative z-20"
         )}
       >
-        Introducing Sline!
+        Welcome to Sline!
       </h1>
       <p className="text-center text-[25px] mt-2 text-slate-900 relative z-20">
         Your guide to a systematic FOCUS design.
