@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import {
   chronicleDisplay,
   chronicleDisplaySemibold,
-} from "../../../public/fonts/fonts";
+} from "../../fonts/fonts";
 
 interface HeadingProps {
   children: React.ReactNode;

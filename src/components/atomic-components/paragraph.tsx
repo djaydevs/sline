@@ -3,7 +3,7 @@ import React from "react";
 import {
   helveticaNeue,
   helveticaNeueMedium,
-} from "../../../public/fonts/fonts";
+} from "../../fonts/fonts";
 
 import { cn } from "@/lib/utils";
 

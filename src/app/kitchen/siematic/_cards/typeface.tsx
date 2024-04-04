@@ -5,7 +5,7 @@ import {
   chronicleDisplaySemibold,
   helveticaNeue,
   helveticaNeueMedium,
-} from "../../../../../public/fonts/fonts";
+} from "../../../../fonts/fonts";
 
 import { cn } from "@/lib/utils";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
