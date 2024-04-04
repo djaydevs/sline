@@ -11,12 +11,12 @@ export const helveticaNeueMedium = localFont({
   });
 
 export const chronicleDisplay = localFont({
-  src: "./chronicleDisplay.otf",
+  src: "./ChronicleDisplay.otf",
   variable: "--font-chronicleDisplay",
 });
 
 export const chronicleDisplaySemibold = localFont({
-  src: "./chronicleDisplaySemibold.otf",
+  src: "./ChronicleDisplaySemibold.otf",
   variable: "--font-chronicleDisplay-semibold",
 });
 // export const helveticaNowBold = localFont({
