@@ -10,15 +10,15 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { copyToClipboard } from "@/lib/utils";
-import { Heading } from "@/components/atomic-components/heading";
+import { YoutubeVideo } from "@/components/atomic-components/youtube-video";
 
-export const HeadingCard = ({}) => {
+export const YoutubeVideoCard = ({}) => {
   const code = useRef<HTMLPreElement>(null);
 
   return (
     <Card>
       <CardHeader className="p-2 pt-0 md:p-4">
-        <CardTitle>Headings</CardTitle>
+        <CardTitle>Youtube Video</CardTitle>
       </CardHeader>
       <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
         <Tabs defaultValue="preview" className="max-w-full">
@@ -36,7 +36,7 @@ export const HeadingCard = ({}) => {
           </div>
           <TabsContent value="preview">
             <div className="h-[50dvh] flex flex-col items-center justify-center shadow-lg rounded-xl">
-              <HeadingExample />
+              <YoutubeVideoExample />
             </div>
           </TabsContent>
           <TabsContent value="example">
@@ -54,7 +54,7 @@ export const HeadingCard = ({}) => {
                 <SyntaxHighlighter
                   language="tsx"
                   style={atomOneDark}
-                  customStyle={{ padding: "0px 20px" }}>
+                  customStyle={{ padding: "0px 20px 20px 20px" }}>
                   {codeExample}
                 </SyntaxHighlighter>
               </pre>
@@ -78,7 +78,7 @@ export const HeadingCard = ({}) => {
                   <SyntaxHighlighter
                     language="tsx"
                     style={atomOneDark}
-                    customStyle={{ padding: "0px 20px" }}>
+                    customStyle={{ padding: "0px 20px 20px 20px" }}>
                     {codeSource}
                   </SyntaxHighlighter>
                 </pre>
@@ -91,92 +91,54 @@ export const HeadingCard = ({}) => {
   );
 };
 
-export const HeadingExample = () => {
+export const YoutubeVideoExample = () => {
   return (
-    <div className="space-y-3 text-center">
-      <Heading.h1>Heading 1</Heading.h1>
-      <Heading.h2>Heading 2</Heading.h2>
-      <Heading.h3>Heading 3</Heading.h3>
-      <Heading.h4>Heading 4</Heading.h4>
-      <Heading.h5>Heading 5</Heading.h5>
-      <Heading.h6>Heading 6</Heading.h6>
+    <div className="w-[500px]">
+      <YoutubeVideo className="w-full" videoId="me9Heufpcxg" />
     </div>
   );
 };
 
 const codeExample = `
-import { Heading } from "@/components/atoms/heading";
-
-export const HeadingExample = () => {
+export const YoutubeVideoExample = () => {
     return (
-      <div className="space-y-3 text-center">
-        <Heading.h1>Heading 1</Heading.h1>
-        <Heading.h2>Heading 2</Heading.h2>
-        <Heading.h3>Heading 3</Heading.h3>
-        <Heading.h4>Heading 4</Heading.h4>
-        <Heading.h5>Heading 5</Heading.h5>
-        <Heading.h6>Heading 6</Heading.h6>
+      <div className="w-[500px]">
+        <YoutubeVideo className="w-full" videoId="me9Heufpcxg" />
       </div>
     );
   };
 `;
 
 const codeSource = `
+"use client";
+
 import { cn } from "@/lib/utils";
-import { chronicleDisplay } from "../../../public/fonts/fonts";
 
-interface HeadingProps {
-  children: React.ReactNode;
-}
-
-const h1: React.FC<HeadingProps> = ({ children }) => {
-  return (
-    <h1 className={cn("text-5xl uppercase", chronicleDisplay.className)}>
-      {children}
-    </h1>
-  );
+type YouTubeVideoProps = {
+  videoId: string;
+  fullVideo?: boolean;
+  className?: string;
 };
 
-const h2: React.FC<HeadingProps> = ({ children }) => {
+export const YoutubeVideo = (props: YouTubeVideoProps) => {
+  const { videoId, fullVideo = false, className = "" } = props;
+
   return (
-    <h2 className={cn("text-4xl uppercase", chronicleDisplay.className)}>
-      {children}
-    </h2>
+    <div
+      className={cn(
+        "aspect-w-16 aspect-h-9",
+        { "w-full lg:w-screen": fullVideo },
+        className
+      )}>
+      <iframe
+        allowFullScreen
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        className="aspect-video w-full"
+        src={\`https://www.youtube.com/embed/\${videoId}\`}
+        title="YouTube video player"
+      />
+    </div>
   );
 };
-
-const h3: React.FC<HeadingProps> = ({ children }) => {
-  return (
-    <h3 className={cn("text-3xl uppercase", chronicleDisplay.className)}>
-      {children}
-    </h3>
-  );
-};
-
-const h4: React.FC<HeadingProps> = ({ children }) => {
-  return (
-    <h4 className={cn("text-2xl uppercase", chronicleDisplay.className)}>
-      {children}
-    </h4>
-  );
-};
-
-const h5: React.FC<HeadingProps> = ({ children }) => {
-  return (
-    <h5 className={cn("text-xl uppercase", chronicleDisplay.className)}>
-      {children}
-    </h5>
-  );
-};
-
-const h6: React.FC<HeadingProps> = ({ children }) => {
-  return (
-    <h6 className={cn("text-lg uppercase", chronicleDisplay.className)}>
-      {children}
-    </h6>
-  );
-};
-
-export const Heading = { h1, h2, h3, h4, h5, h6 };
 
 `;

@@ -5,6 +5,9 @@ import { Colors } from "../_cards/colors";
 import { ParagraphCard } from "../_cards/paragraph";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { HeadingCard } from "../_cards/heading";
+import { YoutubeVideoCard } from "../_cards/youtube-video";
+import { AssetsCard } from "../_cards/assets";
 
 export default function SieMaticAtomicCards() {
   return (
@@ -14,9 +17,11 @@ export default function SieMaticAtomicCards() {
       </h1>
       <ScrollArea className="h-[60dvh] overflow-hidden border-b-[1px] md:h-[70dvh] lg:h-[78dvh]">
         <div className="flex flex-col gap-5">
-          <Typeface />
+          <AssetsCard />
           <Colors />
+          <HeadingCard />
           <ParagraphCard />
+          <YoutubeVideoCard />
         </div>
       </ScrollArea>
     </div>
