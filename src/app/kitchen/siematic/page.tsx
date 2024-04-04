@@ -3,6 +3,7 @@ import { Mulish } from "next/font/google";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SieMaticAtomicCards from "./_components/atoms";
+import SieMaticMoleculeCards from "./_components/molecules";
 
 const mulish = Mulish({
   subsets: ["latin"],
@@ -20,7 +21,9 @@ const SieMaticPage = async ({ children }: { children: React.ReactNode }) => {
       <TabsContent className="h-full max-w-full" value="atoms">
         <SieMaticAtomicCards />
       </TabsContent>
-      <TabsContent value="molecules"></TabsContent>
+      <TabsContent className="h-full max-w-full" value="molecules">
+        <SieMaticMoleculeCards />
+      </TabsContent>
       <TabsContent value="organisms"></TabsContent>
     </Tabs>
   );
