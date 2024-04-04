@@ -55,7 +55,7 @@ export const ParagraphCard = ({}) => {
                 <SyntaxHighlighter
                   language="tsx"
                   style={atomOneDark}
-                  customStyle={{ padding: "0px 20px" }}>
+                  customStyle={{ padding: "0px 20px 20px 20px" }}>
                   {codeExample}
                 </SyntaxHighlighter>
               </pre>
@@ -79,7 +79,7 @@ export const ParagraphCard = ({}) => {
                   <SyntaxHighlighter
                     language="tsx"
                     style={atomOneDark}
-                    customStyle={{ padding: "0px 20px" }}>
+                    customStyle={{ padding: "0px 20px 20px 20px" }}>
                     {codeSource}
                   </SyntaxHighlighter>
                 </pre>
