@@ -9,17 +9,16 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Paragraph } from "@/components/atomic-components/paragraph";
 import { copyToClipboard } from "@/lib/utils";
 import { Heading } from "@/components/atomic-components/heading";
 
-export const ParagraphCard = ({}) => {
+export const HeadingCard = ({}) => {
   const code = useRef<HTMLPreElement>(null);
 
   return (
     <Card>
       <CardHeader className="p-2 pt-0 md:p-4">
-        <CardTitle>Paragraph</CardTitle>
+        <CardTitle>Headings</CardTitle>
       </CardHeader>
       <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
         <Tabs defaultValue="preview" className="max-w-full">
@@ -37,7 +36,7 @@ export const ParagraphCard = ({}) => {
           </div>
           <TabsContent value="preview">
             <div className="h-[50dvh] flex flex-col items-center justify-center shadow-lg rounded-xl">
-              <ParagraphExample />
+              <HeadingExample />
             </div>
           </TabsContent>
           <TabsContent value="example">
@@ -92,64 +91,92 @@ export const ParagraphCard = ({}) => {
   );
 };
 
-export const ParagraphExample = () => {
+export const HeadingExample = () => {
   return (
-    <>
-      {/* Normal Font Weight */}
-      <Paragraph>The quick brown fox jumps over the lazy dog</Paragraph>
-      {/* Bold Font Weight */}
-      <Paragraph bold>The quick brown fox jumps over the lazy dog</Paragraph>
-    </>
+    <div className="space-y-3 text-center">
+      <Heading.h1>Heading 1</Heading.h1>
+      <Heading.h2>Heading 2</Heading.h2>
+      <Heading.h3>Heading 3</Heading.h3>
+      <Heading.h4>Heading 4</Heading.h4>
+      <Heading.h5>Heading 5</Heading.h5>
+      <Heading.h6>Heading 6</Heading.h6>
+    </div>
   );
 };
 
 const codeExample = `
-import { Paragraph } from "@/components/atoms/paragraph";
+import { Heading } from "@/components/atoms/heading";
 
-export const ParagraphExample = () => {
-  return (
-    <>
-      {/* Normal Font Weight */}
-      <Paragraph>The quick brown fox jumps over the lazy dog</Paragraph>
-      {/* Bold Font Weight */}
-      <Paragraph bold>The quick brown fox jumps over the lazy dog</Paragraph>
-    </>
-  );
-};
+export const HeadingExample = () => {
+    return (
+      <div className="space-y-3 text-center">
+        <Heading.h1>Heading 1</Heading.h1>
+        <Heading.h2>Heading 2</Heading.h2>
+        <Heading.h3>Heading 3</Heading.h3>
+        <Heading.h4>Heading 4</Heading.h4>
+        <Heading.h5>Heading 5</Heading.h5>
+        <Heading.h6>Heading 6</Heading.h6>
+      </div>
+    );
+  };
 `;
 
 const codeSource = `
-import React from "react";
-
-import {
-  helveticaNeue,
-  helveticaNeueMedium,
-} from "../../../public/fonts/fonts";
-
 import { cn } from "@/lib/utils";
+import { chronicleDisplay } from "../../../public/fonts/fonts";
 
-type ParagraphProps = {
-  className?: string;
-  bold?: boolean;
+interface HeadingProps {
   children: React.ReactNode;
-};
+}
 
-export const Paragraph: React.FC<ParagraphProps> = ({
-  children,
-  className,
-  bold,
-}) => {
+const h1: React.FC<HeadingProps> = ({ children }) => {
   return (
-    <p
-      className={cn(
-        "max-w-full text-justify text-[14px] sm:text-[15px] leading-7 text-black md:text-center lg:text-[16px]",
-        helveticaNeue.className,
-        bold && helveticaNeueMedium.className,
-        className
-      )}
-    >
+    <h1 className={cn("text-5xl uppercase", chronicleDisplay.className)}>
       {children}
-    </p>
+    </h1>
   );
 };
+
+const h2: React.FC<HeadingProps> = ({ children }) => {
+  return (
+    <h2 className={cn("text-4xl uppercase", chronicleDisplay.className)}>
+      {children}
+    </h2>
+  );
+};
+
+const h3: React.FC<HeadingProps> = ({ children }) => {
+  return (
+    <h3 className={cn("text-3xl uppercase", chronicleDisplay.className)}>
+      {children}
+    </h3>
+  );
+};
+
+const h4: React.FC<HeadingProps> = ({ children }) => {
+  return (
+    <h4 className={cn("text-2xl uppercase", chronicleDisplay.className)}>
+      {children}
+    </h4>
+  );
+};
+
+const h5: React.FC<HeadingProps> = ({ children }) => {
+  return (
+    <h5 className={cn("text-xl uppercase", chronicleDisplay.className)}>
+      {children}
+    </h5>
+  );
+};
+
+const h6: React.FC<HeadingProps> = ({ children }) => {
+  return (
+    <h6 className={cn("text-lg uppercase", chronicleDisplay.className)}>
+      {children}
+    </h6>
+  );
+};
+
+export const Heading = { h1, h2, h3, h4, h5, h6 };
+
 `;

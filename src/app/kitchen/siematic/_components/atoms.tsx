@@ -5,6 +5,7 @@ import { Colors } from "../_cards/colors";
 import { ParagraphCard } from "../_cards/paragraph";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { HeadingCard } from "../_cards/heading";
 
 export default function SieMaticAtomicCards() {
   return (
@@ -16,6 +17,7 @@ export default function SieMaticAtomicCards() {
         <div className="flex flex-col gap-5">
           <Typeface />
           <Colors />
+          <HeadingCard />
           <ParagraphCard />
         </div>
       </ScrollArea>
