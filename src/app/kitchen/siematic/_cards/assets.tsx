@@ -17,7 +17,7 @@ export const AssetsCard = ({}) => {
       <CardHeader className="flex-row p-2 pt-0 md:p-4 justify-between">
         <CardTitle>Assets</CardTitle>
         <Link
-          href="/SieMaticLogo.png"
+          href="/siematic-logo.png"
           target="_blank"
           rel="noopener noreferrer"
           className={cn(buttonVariants({variant: "default"}))}
