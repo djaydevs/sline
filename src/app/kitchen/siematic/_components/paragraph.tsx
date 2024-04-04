@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { toast } from "sonner";
-import { Clipboard } from "lucide-react";
+import { Clipboard, CodeXml } from "lucide-react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
@@ -11,52 +10,10 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Paragraph } from "@/components/atomic-components/paragraph";
+import { copyToClipboard } from "@/lib/utils";
 
 export const ParagraphCard = ({}) => {
-  const codeString = `  import React from "react";
-
-  import {
-    helveticaNeue,
-    helveticaNeueMedium,
-  } from "../../../public/fonts/fonts";
-  
-  import { cn } from "@/lib/utils";
-  
-  type ParagraphProps = {
-    className?: string;
-    bold?: boolean;
-    children: React.ReactNode;
-  };
-  
-  export const Paragraph: React.FC<ParagraphProps> = ({
-    children,
-    className,
-    bold,
-  }) => {
-    return (
-      <p
-        className={cn(
-          "max-w-full text-justify text-[14px] sm:text-[15px] leading-7 text-black md:text-center lg:text-[16px]",
-          helveticaNeue.className,
-          bold && helveticaNeueMedium.className,
-          className
-        )}
-      >
-        {children}
-      </p>
-    );
-  };  
-  `;
   const code = useRef<HTMLPreElement>(null);
-
-  const copyToClipboard = () => {
-    if (code.current) {
-      navigator.clipboard
-        .writeText(code.current.textContent ?? "")
-        .then(() => toast.success("Code copied to clipboard"))
-        .catch((err) => console.error("Could not copy text: ", err));
-    }
-  };
 
   return (
     <Card>
@@ -68,32 +25,68 @@ export const ParagraphCard = ({}) => {
           <div className="w-full flex justify-between">
             <TabsList className="grid h-full w-full grid-cols-2 md:w-[200px]">
               <TabsTrigger value="preview">Preview</TabsTrigger>
-              <TabsTrigger value="code">Code</TabsTrigger>
+              <TabsTrigger value="example">Example</TabsTrigger>
             </TabsList>
-            <Button onClick={copyToClipboard} variant="secondary">
-              <Clipboard className="mr-1 h-5 w-5" />
-              Copy Code
-            </Button>
+            <TabsList className="grid h-full w-full grid-cols-1 md:w-[150px]">
+              <TabsTrigger value="source-code">
+                <CodeXml className="mr-1 h-5 w-5" />
+                Source Code
+              </TabsTrigger>
+            </TabsList>
           </div>
           <TabsContent value="preview">
-            <div className="h-[50dvh] flex flex-col items-center justify-center">
-              <Paragraph>The quick brown fox jumps over the lazy dog</Paragraph>
-              <Paragraph bold>
-                The quick brown fox jumps over the lazy dog
-              </Paragraph>
+            <div className="h-[50dvh] flex flex-col items-center justify-center shadow-lg rounded-xl">
+              <ParagraphExample />
             </div>
           </TabsContent>
-          <TabsContent value="code">
-            <ScrollArea className="w-full h-[50dvh] rounded-lg">
+          <TabsContent value="example">
+            <ScrollArea className="relative w-full h-full rounded-lg">
+              <div className="absolute top-0 right-0 p-2">
+                <Button
+                  onClick={() => copyToClipboard(code)}
+                  variant="ghost"
+                  size="icon"
+                  className="text-white hover:text-blue-500"
+                >
+                  <Clipboard className="h-5 w-5" />
+                </Button>
+              </div>
               <pre ref={code} className="max-w-full text-[13px]">
                 <SyntaxHighlighter
                   language="tsx"
                   style={atomOneDark}
                   customStyle={{ padding: "25px" }}
                 >
-                  {codeString}
+                  {codeExample}
                 </SyntaxHighlighter>
               </pre>
+            </ScrollArea>
+          </TabsContent>
+          <TabsContent value="source-code">
+            <ScrollArea className="w-full h-[50dvh] rounded-lg">
+              <div className="relative">
+                <div className="sticky top-0 w-full">
+                  <div className="absolute top-0 right-0 p-2">
+                    <Button
+                      onClick={() => copyToClipboard(code)}
+                      variant="ghost"
+                      size="icon"
+                      className="text-white hover:text-blue-500"
+                    >
+                      <Clipboard className="h-5 w-5" />
+                    </Button>
+                  </div>
+                </div>
+                <pre ref={code} className="max-w-full text-[13px]">
+                  <SyntaxHighlighter
+                    language="tsx"
+                    style={atomOneDark}
+                    customStyle={{ padding: "25px" }}
+                  >
+                    {codeSource}
+                  </SyntaxHighlighter>
+                </pre>
+              </div>
             </ScrollArea>
           </TabsContent>
         </Tabs>
@@ -101,3 +94,65 @@ export const ParagraphCard = ({}) => {
     </Card>
   );
 };
+
+export const ParagraphExample = () => {
+  return (
+    <>
+      {/* Normal Font Weight */}
+      <Paragraph>The quick brown fox jumps over the lazy dog</Paragraph>
+      {/* Bold Font Weight */}
+      <Paragraph bold>The quick brown fox jumps over the lazy dog</Paragraph>
+    </>
+  );
+};
+
+const codeExample = `
+import { Paragraph } from "@/components/atoms/paragraph";
+
+export const ParagraphExample = () => {
+  return (
+    <>
+      {/* Normal Font Weight */}
+      <Paragraph>The quick brown fox jumps over the lazy dog</Paragraph>
+      {/* Bold Font Weight */}
+      <Paragraph bold>The quick brown fox jumps over the lazy dog</Paragraph>
+    </>
+  );
+};
+`;
+
+const codeSource = `
+import React from "react";
+
+import {
+  helveticaNeue,
+  helveticaNeueMedium,
+} from "../../../public/fonts/fonts";
+
+import { cn } from "@/lib/utils";
+
+type ParagraphProps = {
+  className?: string;
+  bold?: boolean;
+  children: React.ReactNode;
+};
+
+export const Paragraph: React.FC<ParagraphProps> = ({
+  children,
+  className,
+  bold,
+}) => {
+  return (
+    <p
+      className={cn(
+        "max-w-full text-justify text-[14px] sm:text-[15px] leading-7 text-black md:text-center lg:text-[16px]",
+        helveticaNeue.className,
+        bold && helveticaNeueMedium.className,
+        className
+      )}
+    >
+      {children}
+    </p>
+  );
+};
+`;
