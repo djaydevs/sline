@@ -23,7 +23,9 @@ export const ProfileDropdown: React.FC<ProfileDropdownProps> = ({
     <div className={className}>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="secondary" className="w-full flex justify-start rounded-md">
+          <Button
+            variant="secondary"
+            className="w-full flex justify-start rounded-md">
             <CircleUser className="mr-2 h-5 w-5" />
             User
             <span className="sr-only">Toggle user menu</span>
