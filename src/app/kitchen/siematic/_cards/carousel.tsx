@@ -55,7 +55,7 @@ export const CarouselCard = ({}) => {
                 <SyntaxHighlighter
                   language="tsx"
                   style={atomOneDark}
-                  customStyle={{ padding: "0px 20px" }}
+                  customStyle={{ padding: "0px 20px 20px 20px" }}
                 >
                   {codeExample}
                 </SyntaxHighlighter>
@@ -81,7 +81,7 @@ export const CarouselCard = ({}) => {
                   <SyntaxHighlighter
                     language="tsx"
                     style={atomOneDark}
-                    customStyle={{ padding: "0px 20px" }}
+                    customStyle={{ padding: "0px 20px 20px 20px" }}
                   >
                     {codeSource}
                   </SyntaxHighlighter>
@@ -107,7 +107,7 @@ export const CarouselAutoplayIndicatorExample = () => {
 };
 
 const codeExample = `
-import { Paragraph } from "@/components/atoms/paragraph";
+import { Paragraph } from "@/components/molecules/carousel";
 
 export const ParagraphExample = () => {
   return (
@@ -226,7 +226,8 @@ export const CarouselImageBanner: React.FC<CarouselImageBannerProps> = ({
           <div className="hidden md:block">
             <CarouselPrevious
               className={cn(
-                "absolute left-4 top-1/2 -translate-y-1/2 scale-75 transform transition duration-500 ease-in-out md:scale-90 lg:scale-100",
+                "absolute left-4 top-1/2 -translate-y-1/2 scale-75 transform 
+                transition duration-500 ease-in-out md:scale-90 lg:scale-100",
                 {
                   "opacity-100": isHovered,
                   "opacity-0": !isHovered,
@@ -235,7 +236,8 @@ export const CarouselImageBanner: React.FC<CarouselImageBannerProps> = ({
             />
             <CarouselNext
               className={cn(
-                "absolute right-4 top-1/2 -translate-y-1/2 scale-75 transform transition duration-500 ease-in-out md:scale-90 lg:scale-100",
+                "absolute right-4 top-1/2 -translate-y-1/2 scale-75 transform 
+                transition duration-500 ease-in-out md:scale-90 lg:scale-100",
                 {
                   "opacity-100": isHovered,
                   "opacity-0": !isHovered,
